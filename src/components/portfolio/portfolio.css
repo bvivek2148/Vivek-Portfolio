@@ -1,0 +1,70 @@
+/* Smooth scroll for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #00ffaa33;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00ffaa66;
+}
+
+/* Glitch animation */
+@keyframes glitch-clip-1 {
+  0% { clip-path: inset(20% 0 60% 0); transform: translate(-4px, 0); }
+  20% { clip-path: inset(70% 0 5% 0); transform: translate(4px, 0); }
+  40% { clip-path: inset(40% 0 40% 0); transform: translate(-2px, 0); }
+  60% { clip-path: inset(10% 0 80% 0); transform: translate(3px, 0); }
+  80% { clip-path: inset(55% 0 25% 0); transform: translate(-3px, 0); }
+  100% { clip-path: inset(20% 0 60% 0); transform: translate(-4px, 0); }
+}
+
+@keyframes glitch-clip-2 {
+  0% { clip-path: inset(60% 0 20% 0); transform: translate(4px, 0); }
+  20% { clip-path: inset(5% 0 70% 0); transform: translate(-4px, 0); }
+  40% { clip-path: inset(45% 0 35% 0); transform: translate(2px, 0); }
+  60% { clip-path: inset(80% 0 10% 0); transform: translate(-3px, 0); }
+  80% { clip-path: inset(25% 0 55% 0); transform: translate(3px, 0); }
+  100% { clip-path: inset(60% 0 20% 0); transform: translate(4px, 0); }
+}
+
+.glitch-active::before,
+.glitch-active::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch-active::before {
+  color: #ff0055;
+  animation: glitch-clip-1 0.2s infinite linear alternate-reverse;
+}
+
+.glitch-active::after {
+  color: #0ea5e9;
+  animation: glitch-clip-2 0.2s infinite linear alternate-reverse;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(0, 255, 170, 0.25);
+  color: #fff;
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid rgba(0, 255, 170, 0.5);
+  outline-offset: 2px;
+}

@@ -1,0 +1,30 @@
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+count.txt
+.env
+.env.example
+.nitro
+.tanstack
+.output
+.vinxi
+todos.json
+.eslintcache
+
+# Editor & tool configs
+.vscode/
+.cursorrules
+.cta.json
+
+# Build & tooling configs
+.dockerignore
+.prettierignore
+prettier.config.js
+eslint.config.js
+components.json
+bun.lock
+
+# Appwrite config (contains project ID)
+appwrite.json
